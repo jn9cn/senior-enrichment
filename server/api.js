@@ -16,9 +16,3 @@ router.use((req, res, next) => {
 	res.status(404).send('Not found');
 });
 
-
-// api.use((err, req, res, next) => {
-// 	console.error(err);
-// 	res.sendStatus(500).send(err.message);
-// });
-

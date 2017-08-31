@@ -29,8 +29,3 @@ const Root = () => {
   )
 }
 export default Root;
-
-{/* <Route path={`/campuses/${id}`} component={SingleCampus} />
-<Route path='/campus/add-campus' component={AddCampus} />
-<Route exact path='/students' component={AllStudents} />
-<Route path={`/students/${id}`} component={SingleStudent} /> */}
