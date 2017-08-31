@@ -16,12 +16,12 @@ const Root = () => {
       <div>
         <Navbar />
         <Switch>
-          <Route exact path='/campuses' component={AllCampuses} />
           <Route path='/campuses/:campusId' component={SingleCampus} />
-          <Route path='/campus/add-campus' component={AddCampus} />
-          <Route exact path='/students' component={AllStudents} />
+          <Route path='/add-campus' component={AddCampus} />
+          <Route exact path='/campuses' component={AllCampuses} />
           <Route path='/students/:studentid' component={SingleStudent} />
-          <Route path='/student/add-student' component={AddStudent} />
+          <Route exact path='/add-student' component={AddStudent} />
+          <Route exact path='/students' component={AllStudents} />
           <Route exact path='/' component={HomePage} />
         </Switch>
       </div>
