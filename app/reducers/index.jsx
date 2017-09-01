@@ -10,6 +10,9 @@ const rootReducer = function(state = initialState, action) {
 
 export default rootReducer;
 
+// I regrettably attempted to do Redux before React and
+// ran into errors, deep rabbit holes, and had to start over with this half the project a few times.
+// My fellow advised to leave my Redux work below.
 
 // import { combineReducers } from 'redux';
 // import axios from 'axios';
@@ -70,7 +73,7 @@ export default rootReducer;
 
 // // THUNK CREATORS
 // export function fetchAllCampuses(){
-//   return function thunk (dispatch){
+//   return function thunk(dispatch){
 //     return axios.get('api/campuses')
 //     .then(res => res.data)
 //     .then(campuses => {
@@ -81,10 +84,10 @@ export default rootReducer;
 // }
 
 // export function fetchAllStudents(){
-//   return function thunk (dispatch){
+//   return function thunk(dispatch){
 //     return axios.get('/api/students')
 //     .then(res => res.data)
-//     .then(students =>{
+//     .then(students => {
 //       const action = getStudents(students);
 //       dispatch(action);
 //     })
@@ -92,7 +95,7 @@ export default rootReducer;
 // }
 
 // export function fetchSingleStudent(studentId){
-//   return function thunk (dispatch){
+//   return function thunk(dispatch){
 //     axios.get(`/api/students/${studentId}`)
 //     .then(res => res.data)
 //     .then(data => {
@@ -103,7 +106,7 @@ export default rootReducer;
 // }
 
 // export function fetchSingleCampus(campusId){
-//   return function thunk (dispatch){
+//   return function thunk(dispatch){
 //     axios.get(`/api/campuses/${campusId}`)
 //     .then(res => res.data)
 //     .then(data => {
@@ -114,11 +117,10 @@ export default rootReducer;
 // }
 
 // export function fetchStudentsByCampus(campusId){
-//   return function thunk (dispatch){
+//   return function thunk(dispatch){
 //     return axios.get(`/api/campuses/${campusId}`);
 //     .then(res => res.data)
 //     .then(data => {
-//       console.log("fetch students from campus, WHAT IS DATA >>>>>", data)
 //       const students = data[0].Student;
 //       const action = getStudentsByCampus(students);
 //       dispatch(action);
@@ -139,7 +141,7 @@ export default rootReducer;
 
 // export function addCampus(newCampus){
 //   return function thunk(dispatch){
-//     return axios.post('api/campuses', newCampus);
+//     return axios.post('/api/campuses', newCampus);
 //     .then(res => res.data)
 //     .then(data => {
 //       const action = addCampus(data);
@@ -174,7 +176,7 @@ export default rootReducer;
 //     case ADD_STUDENT:
 //       return Object.assign({}, state, {students: state.students.push(action.student)});
 //     default:
-//       return state
+//       return state;
 //   }
 // };
 
