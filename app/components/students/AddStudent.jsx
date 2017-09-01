@@ -10,6 +10,12 @@ export default class AddStudent extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount() {
+        axios.get('/api/campuses')
+            .then(res => res.data)
+            .then(campuses => this.setState({campuses}));
+    }
     
     handleChange(e) {
         const inputVal = e.target.value;
@@ -38,10 +44,13 @@ export default class AddStudent extends Component {
                     <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Campus</label>
                     <select onChange={this.handleChange} name="campusId" className="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
                       <option defaultValue="Choose">Choose...</option>
-                      <option value="1">Luna</option>
-                      <option value="2">Terra</option>
-                      <option value="3">Mars</option>
-                      <option value="3">Titan</option>
+                            {   this.state.campuses
+                                &&
+                                this.state.campuses.map(
+                                    (campus) => 
+                                    <option key={campus.id} value={campus.id}>{campus.name}</option>
+                                )
+                            }
                     </select>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

@@ -11,7 +11,8 @@ export default class SingleCampus extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleDeleteCampus = this.handleDeleteCampus.bind(this);
+        this.handleDeleteStudent = this.handleDeleteStudent.bind(this);
     }
     
     componentDidMount() {
@@ -46,12 +47,17 @@ export default class SingleCampus extends Component {
         // .catch(error => console.error(error))
     }
 
-    handleDelete(e) {
+    handleDeleteCampus(e) {
         e.preventDefault();
         axios.delete(`/api/campuses/${this.state.campus.id}`)
     }
 
+    handleDeleteStudent(id) {
+        axios.delete(`/api/students/${id}`)
+    }
+
     render() {
+        console.log(this.state)
         return (
             <div className="col-md-8 col-md-offset-2">
                 <h2 className="boldL">Welcome to {this.state.campus.name} Campus</h2>
@@ -73,7 +79,7 @@ export default class SingleCampus extends Component {
                             </form>
                         </li>
                         <li>
-                            <form onSubmit={this.handleDelete}>
+                            <form onSubmit={this.handleDeleteCampus}>
                                 <button>Delete Campus</button>
                             </form>
                         </li>
@@ -87,7 +93,9 @@ export default class SingleCampus extends Component {
                             <li className="list-inline-item">Name: {student.name}</li>
                             <li className="list-inline-item">Email: {student.email}</li>
                             </Link>
-                            <li><button>Delete</button></li>
+                            <li>
+                            <button onClick={() => this.handleDeleteStudent(student.id)}>Delete Student</button>
+                            </li>
                         </ul>
                     )
                 }

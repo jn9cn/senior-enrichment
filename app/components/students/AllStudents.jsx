@@ -16,6 +16,10 @@ export default class AllStudents extends Component {
             .then(students => this.setState({students}));
     }
 
+    handleDeleteStudent(id) {
+        axios.delete(`/api/students/${id}`)
+    }
+
     render() {
         return (
             <div>
@@ -34,7 +38,9 @@ export default class AllStudents extends Component {
                                 <li className="list-inline-item">Name: {student.name}</li>
                                 <li className="list-inline-item">Email: {student.email}</li>
                                 </Link>
-                                <li><button>Delete</button></li>
+                                <li>
+                                    <button onClick={() => this.handleDeleteStudent(student.id)}>Delete Student</button>
+                                </li>
                             </div>
                         )
                     }
